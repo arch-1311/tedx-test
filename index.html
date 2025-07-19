@@ -936,11 +936,16 @@
     
     const toggler = document.querySelector('.navbar-toggler');
     const icon = document.getElementById('hamburgerIcon');
+    const navbarMenu = document.getElementById('navbarMenu');
 
     toggler.addEventListener('click', () => {
       const expanded = toggler.getAttribute('aria-expanded') === 'true';
       icon.classList.toggle('fa-bars', !expanded);
       icon.classList.toggle('fa-times', expanded);
+    });
+    navbarMenu.addEventListener('hidden.bs.collapse', () => {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
     });
   </script>
   <script>
